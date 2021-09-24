@@ -25,10 +25,14 @@ module.exports = class TriggeredCommand extends Command {
 async exec(message, { member }) {
     const avatar = member.user.displayAvatarURL({ size: 2048, format: 'png', dynamic: true });
     const gif = await Canvas.trigger(avatar)
-    const attachment = new this.client.functions.embed(message.author)
-    .setImage(gif)
+    const attachment = new Discord.MessageAttachment(gif, 'trigger.gif')
     //.setTitle(message.author.username)
 //let msg = await message.util.reply("produzindo a imagem...")
- message.channel.send('essa mensagem sera editada em 5 segundos').then(msg => setTimeout(()=>msg.edit(attachment), 5000))
+ message.channel.send({
+    files: ({
+      name: "trigger.gif",
+      attachment: gif
+    })
+ })
   }
 }

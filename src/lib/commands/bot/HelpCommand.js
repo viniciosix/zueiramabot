@@ -24,7 +24,14 @@ module.exports = class HelpCommand extends Command {
     const embed = new this.client.functions.embed(message.author).setThumbnail(this.client.user.displayAvatarURL());
     if (!command) {
       embed
-        .setDescription(obj)
+        .setDescriptionArray([
+        [
+          `<:github:889271753585594369> [Source](https://github.com/ViniProgrammer/zueiramabot)`
+        ],
+        [
+          `${obj}`
+        ]
+      ])
         .setTitle(`[${this.client.commandHandler.modules.size}] Comandos:`)
         .setFooter("utilize .help [comando] para mais informações.")
       return message.util.send(embed);

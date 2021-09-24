@@ -13,8 +13,8 @@ module.exports = class ReadyListener extends Listener {
     this.client.user.setPresence({
       activity: {
         name: `.help | ${this.client.guilds.cache.size} servers`,
-        type: "PLAYING",
-      //  url: "https://www.twitch.tv/alanzoka"
+        type: "STREAMING",
+        url: "https://www.twitch.tv/zueirama"
       }
     });
     return console.log("[Zueirama] Iniciado.");
